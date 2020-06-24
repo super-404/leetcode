@@ -14,6 +14,7 @@ import java.util.Queue;
  **/
 
 public class numIsLand131 {
+
     public static void main(String[] args) {
         char[][] board = {
                 {'1'},

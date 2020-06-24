@@ -107,7 +107,7 @@ public class CalcEquation {
                     //如果没有找到的话，深度优先搜索
                   double res=dfs(graph,goal,second,objects,answer*v);
                     //处理返回值
-                      //                      //如果res!=-1说明 goal.equals(second)为真也就是说，问题已经得到解决，可以直接返回
+                    // 如果res!=-1说明 goal.equals(second)为真也就是说，问题已经得到解决，可以直接返回
                       if(res!=-1){
                           return res;
                       }
