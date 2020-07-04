@@ -21,28 +21,37 @@ class Solution {
         if (land.length == 0) {
             return new int[0];
         }
+
         LinkedList<Integer> li = new LinkedList<> ();
-        //行
+        //列的长度
         int row = land[0].length;
         ArrayList<Integer> res = new ArrayList<> ();
         int move[][] = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}, {1, 1}, {1, -1}, {-1, -1}, {-1, 1}};
         for (int i = 0; i < land.length; i++)
             for (int j = 0; j < land[0].length; j++) {
+                //零为水域
                 if (land[i][j] == 0) {
+                    //添加进队列
                     li.add (i * row + j);
-                    land[i][j]=-1;
+                    //标注已经访问过
+                    land[i][j] = -1;
+                    //开始计数
                     int count = 0;
                     count++;
-                    while (!li.isEmpty ()) {
-                        int origin = li.poll ();
-                        int x = origin / row;
-                        int y = origin % row;
 
-                            for (int k = 0; k < 8; k++) {
+                    while (!li.isEmpty ()) {
+                        //弹出队首元素
+                        int origin = li.poll ();
+                        //获取行坐标
+                        int x = origin / row;
+                        //获取列坐标
+                        int y = origin % row;
+                        //判断8个方向是否有相连的水域
+                        for (int k = 0; k < 8; k++) {
                             int nextX = x + move[k][0];
                             int nextY = y + move[k][1];
                             if (nextX >= 0 && nextY >= 0 && nextX < land.length && nextY < land[0].length && land[nextX][nextY] == 0) {
-                                li.add (nextX*row+nextY);
+                                li.add (nextX * row + nextY);
                                 count++;
                                 land[nextX][nextY] = -1;
                             }
@@ -53,12 +62,12 @@ class Solution {
                     res.add (count);
                 }
             }
-            Collections.sort (res);
-        int a[]=new int [res.size ()];
-        int k=0;
-        for (int n:res
-             ) {
-           a[k++]=n;
+        Collections.sort (res);
+        int a[] = new int[res.size ()];
+        int k = 0;
+        for (int n : res
+        ) {
+            a[k++] = n;
         }
         return a;
     }
