@@ -55,5 +55,4 @@ class Solution {
         //返回构建好的树
         return root;
     }
-
 }

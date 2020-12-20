@@ -44,7 +44,6 @@ class Solution3 {
     public boolean isSameTree(TreeNode p, TreeNode q) {
         dfs(p,q);
         return flag;
-
     }
     public void dfs(TreeNode p,TreeNode q){
         if(p==null&&q!=null||p!=null&&q==null){

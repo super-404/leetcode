@@ -21,7 +21,6 @@ class Solution {
         if (land.length == 0) {
             return new int[0];
         }
-
         LinkedList<Integer> li = new LinkedList<> ();
         //列的长度
         int row = land[0].length;

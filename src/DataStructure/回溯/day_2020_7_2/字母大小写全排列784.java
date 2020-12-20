@@ -12,9 +12,12 @@ import java.util.stream.Collectors;
  **/
 public class 字母大小写全排列784 {
     public static void main(String[] args) {
-        String s = "acb2";
-        Solution solution = new Solution ();
-        System.out.println (solution.letterCasePermutation (s));
+//        String s = "acb2";
+//        Solution solution = new Solution ();
+//        System.out.println (solution.letterCasePermutation (s));
+
+        List<String> ls = new ArrayList<String> ();
+        ls.remove (ls.size () - 1);
     }
 }
 
