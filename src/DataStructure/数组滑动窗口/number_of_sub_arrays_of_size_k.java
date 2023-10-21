@@ -48,5 +48,6 @@ public class number_of_sub_arrays_of_size_k {
 
     public static void main(String[] args) {
         new number_of_sub_arrays_of_size_k ().numOfSubarrays (new int[]{2, 2, 2, 2, 5, 5, 5, 8}, 3, 4);
+
     }
 }
