@@ -28,21 +28,26 @@ public class 解码方法91 {
         if (len <= 1) {
             return dp[0];
         }
+
         if (s.charAt (1) != '0') {
-            if (s.charAt (0) == '2' && s.charAt (1) > '6')
-                dp[1] = dp[0];
-            else
+            if (s.charAt (0) == '1')
                 dp[1] = dp[0] + 1;
+            if (s.charAt (0) == '2' && s.charAt (1) <= '6')
+                dp[1] = dp[0] + 1;
+            else
+                dp[1] = dp[0];
         } else {
             dp[1] = dp[0];
         }
         for (int i = 2; i < len; i++) {
             char t = s.charAt (i);
             if (t != '0') {
-                if (s.charAt (i - 1) == '2' && s.charAt (i) > '6')
-                    dp[i] = dp[i - 1];
-                else
-                    dp[i] = dp[i - 1] + dp[i - 2];
+                if (s.charAt (i - 1) == '2' || s.charAt (i - 1) == '1')
+                    if (s.charAt (i - 1) == '2' && s.charAt (i) <= '6')
+                        dp[i] = dp[i - 1] + dp[i - 2];
+
+                    else
+                        dp[i] = dp[i - 1];
             } else {
                 dp[i] = dp[i - 2];
             }

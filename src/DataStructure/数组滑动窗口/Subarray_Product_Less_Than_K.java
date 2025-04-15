@@ -12,6 +12,8 @@ public class Subarray_Product_Less_Than_K {
         int right = 0;
         int ret = 0;
         int prod = 0;
+
+
         if (k == 0)
             return 0;
         while (right < nums.length) {

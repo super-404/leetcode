@@ -20,7 +20,7 @@ import java.util.*;
 public class 累加数306 {
     public static void main(String[] args) {
         long startTime = System.currentTimeMillis ();
-        String str = "112358";
+        String str = "19910099101";
         new Solution1 ().isAdditiveNumber (str);
         long endTime = System.currentTimeMillis ();
         System.out.println ("花费：" + (endTime - startTime));
@@ -38,38 +38,45 @@ class Solution1 {
         return flag;
     }
 
+    public boolean check(List<String> path) {
+        int n = path.size ();
+        String s1 = path.get (n - 3);
+        String s2 = path.get (n - 2);
+        String s3 = path.get (n - 1);
+        int result[] = new int[Math.max (s1.length (), s2.length () + 1)];
+        int s1end = s1.length () - 1;
+        int s2end = s2.length () - 1;
+        int resultLength = result.length - 1;
+        while (s1end >= 0 && s2end >= 0) {
+            result[resultLength--] = s1.charAt (s1end--) - '0' + s2.charAt (s2end--) - '0';
+        }
+        while (s1end >= 0) {
+            result[resultLength--] = s1.charAt (s1end--) - '0';
+        }
+        while (s2end >= 0) {
+            result[resultLength--] = s2.charAt (s2end--) - '0';
+        }
+        for (int i = result.length - 1; i > 0; i--) {
+            if (result[i] >= 10) {
+                result[i - 1] = result[i - 1] + result[i] / 10;
+                result[i] = result[i] % 10;
+            }
+        }
+        String s = "";
+        int k = 0;
+        while (result[k++] == 0) ;
+        for (int i = k - 1; i < result.length; i++) {
+            s += String.valueOf (result[i]);
+        }
+        if (!s.equals (s3)) {
+            return false;
+        }
+        return true;
+    }
+
     public void backtrack(int start, List<String> path) {
         if (path.size () >= 3) {
-            int n = path.size ();
-            String s1 = path.get (n - 3);
-            String s2 = path.get (n - 2);
-            String s3 = path.get (n - 1);
-            int result[] = new int[Math.max (s1.length (), s2.length () + 1)];
-            int s1end = s1.length () - 1;
-            int s2end = s2.length () - 1;
-            int resultLength = result.length - 1;
-            while (s1end >= 0 && s2end >= 0) {
-                result[resultLength--] = s1.charAt (s1end--) - '0' + s2.charAt (s2end--) - '0';
-            }
-            while (s1end >= 0) {
-                result[resultLength--] = s1.charAt (s1end--) - '0';
-            }
-            while (s2end >= 0) {
-                result[resultLength--] = s2.charAt (s2end--) - '0';
-            }
-            for (int i = result.length - 1; i > 0; i--) {
-                if (result[i] >= 10) {
-                    result[i - 1] = result[i - 1] + result[i] / 10;
-                    result[i] = result[i] % 10;
-                }
-            }
-            String s = "";
-            int k = 0;
-            while (result[k++] == 0) ;
-            for (int i = k - 1; i < result.length; i++) {
-                s += String.valueOf (result[i]);
-            }
-            if (!s.equals (s3)) {
+            if (!check (path)) {
                 return;
             }
             long sum = path.stream ()

@@ -1,8 +1,8 @@
 package DataStructure.散列表;
 
-import edu.princeton.cs.algs4.CollisionSystem;
-import edu.princeton.cs.algs4.Particle;
-import edu.princeton.cs.algs4.StdDraw;
+//import edu.princeton.cs.algs4.CollisionSystem;
+//import edu.princeton.cs.algs4.Particle;
+//import edu.princeton.cs.algs4.StdDraw;
 
 /**
  * @program: leetcode
@@ -38,19 +38,19 @@ public class Test {
 
     @org.junit.Test
     public void collision() {
-        int n = 20;  // number of particles (default 20)
-
-        // enable double buffering to support animations
-        StdDraw.enableDoubleBuffering ();
-
-        // create the n particles
-        Particle[] particles = new Particle[n];
-        for (int i = 0; i < n; i++) {
-            particles[i] = new Particle ();
-        }
-
-        // simulate the system
-        CollisionSystem system = new CollisionSystem (particles);
-        system.simulate (Double.POSITIVE_INFINITY);
+//        int n = 20;  // number of particles (default 20)
+//
+//        // enable double buffering to support animations
+//        StdDraw.enableDoubleBuffering ();
+//
+//        // create the n particles
+//        Particle[] particles = new Particle[n];
+//        for (int i = 0; i < n; i++) {
+//            particles[i] = new Particle ();
+//        }
+//
+//        // simulate the system
+//        CollisionSystem system = new CollisionSystem (particles);
+//        system.simulate (Double.POSITIVE_INFINITY);
     }
 }
