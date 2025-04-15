@@ -1,0 +1,19 @@
+/**
+ * @program: leetcode
+ * @description: 11
+ * @author: 饶嘉伟
+ * @create: 2024-09-24 19:09
+ **/
+public class 同城笔试 {
+
+    public void solution2(){
+        Scanner in = new Scanner(System.in);
+        // 注意 hasNext 和 hasNextLine 的区别
+        while (in.hasNextInt()) { // 注意 while 处理多个 case
+            int a = in.nextInt();
+            int b = in.nextInt();
+            System.out.println(a + b);
+        }
+    }
+
+}

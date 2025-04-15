@@ -1,0 +1,21 @@
+// 可变窗口总结
+1. 记录最大值不一定在if 循环里面，
+
+
+因为有可能整个循环结束也无法触发if 条件，所以每过一个元素，就记录一边最大值，不写在if中
+
+实质是因为，每个元素都是达成条件的
+//例如
+ while(right<s.length ()){
+            int id =  s.charAt (right)-'A';
+            charNum[id] +=1;
+            //记录出现过的最多的单词
+            max = Math.max (max,charNum[id]);
+            if (right-left+1>max+k){
+
+                charNum[s.charAt (left)-'A'] -=1;
+                left++;
+            }
+            count = Math.max (count,right-left);
+            right++;
+        }
